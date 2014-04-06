@@ -1,4 +1,4 @@
-var sub = require('./index');
+var sub = require('../index');
 var http = require('http');
 
 var server = http.createServer(function(req, res){

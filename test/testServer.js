@@ -1,4 +1,4 @@
-var sub = require('./index');
+var sub = require('../index');
 
 
 sub.startServer({

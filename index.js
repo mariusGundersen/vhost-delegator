@@ -1,5 +1,5 @@
-var startClient = require('./client');
-var startServer = require('./server');
+var startClient = require('./lib/client');
+var startServer = require('./lib/server');
 
 module.exports = {
   startServer: startServer,
