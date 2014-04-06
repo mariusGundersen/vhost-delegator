@@ -1,0 +1,16 @@
+{
+  "name": "vhost-delegator",
+  "version": "0.0.1",
+  "description": "Delegate the server work to other nodeJS applications by routing based on subdomains",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marius Gundersen",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^2.14.3",
+    "http-proxy": "^1.0.3",
+    "urlrouter": "^0.5.4"
+  }
+}
