@@ -19,6 +19,8 @@ var delegator = require('vhost-delegator');
 delegator.startServer({});
 ```
 
+### Options
+
 The options object passed to the `startServer` method looks like this:
 
 ```
@@ -40,6 +42,16 @@ The options object passed to the `startServer` method looks like this:
   }
 }
 ```
+
+### Events
+
+Once a delegator server has been started, it emits events about what happens. The following events are emitted
+
+ - **app-started:** Emitted when a client connects. The parameter is the app object, containing the name, port and address to the client app.
+ - **app-stopped:** Emitted when a client disconnects. The parameter is app object, containing the name, port and address to the client.
+ - **error:** Emitted when an error occures. The parameter is an object with a code, describing the error, and a message with details about the error. The following errors can occure:
+   - **NAME_CONFLICT:** A client has attempted to connect as an app that already exists
+   - **PORTS_EXHAUSTED:** There are no more ports for clients to use
  
 ##Client
  
