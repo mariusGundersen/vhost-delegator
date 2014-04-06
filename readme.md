@@ -68,6 +68,22 @@ var server = http.createServer(function(req, res){
  
 delegator.startClient("mysite.localhost", {}, server);
 
+### Options
+
+The options object passed to the `startClient` method looks like this:
+
+```
+{
+  //the controller hostname
+  host: 'localhost',
+  //port of the controller. Matches the controller.port option used when starting the server
+  port: 8080,
+  //username and password sent to the controller. Must match the controller.username and controller.password options used when starting the server
+  username: "admin",
+  passowrd: "admin"
+}
+```
+
 ### Events
 
 The startClient method returns an object which emits events. The following events are emitted:
