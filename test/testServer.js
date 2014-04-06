@@ -2,5 +2,7 @@ var sub = require('../index');
 
 
 sub.startServer({
-  port: 8181
+  controller: {
+    port: 8281
+  }
 });

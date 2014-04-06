@@ -11,6 +11,7 @@
   "dependencies": {
     "connect": "^2.14.3",
     "http-proxy": "^1.0.3",
-    "urlrouter": "^0.5.4"
+    "urlrouter": "^0.5.4",
+    "node.extend": "^1.0.10"
   }
 }
