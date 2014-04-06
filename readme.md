@@ -67,6 +67,7 @@ var server = http.createServer(function(req, res){
 });
  
 delegator.startClient("mysite.localhost", {}, server);
+```
 
 ### Options
 
