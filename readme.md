@@ -13,7 +13,7 @@ npm install vhost-delegator
 The vhost-delegator runs as an http server, by default on port 80, which proxies the connections to other nodeJS applications, on the same server, but with different port numbers. 
 The server can be started like this:
 
-```
+```js
 var delegator = require('vhost-delegator');
 
 delegator.startServer({});
@@ -23,7 +23,7 @@ delegator.startServer({});
 
 The options object passed to the `startServer` method looks like this:
 
-```
+```js
 {
   //these are the options for the controller, which the clients communicate with
   controller: {
@@ -58,8 +58,8 @@ Once a delegator server has been started, it emits events about what happens. Th
 Clients connect to the server, gives the vhost name they want to run as, and in return are given a port number to run under. Only when they are given the port number should they start the 
 http server:
  
-```
-var delegator = require('delegator');
+```js
+var delegator = require('vhost-delegator');
 var server = require('http');
 
 var server = http.createServer(function(req, res){
@@ -72,7 +72,7 @@ delegator.startClient("mysite.localhost", {}, server);
 
 The options object passed to the `startClient` method looks like this:
 
-```
+```js
 {
   //the controller hostname
   host: 'localhost',
@@ -93,8 +93,3 @@ The startClient method returns an object which emits events. The following event
  - **error:** Emited when something bad happens. The parameter is an object with a code, describing the error, and a message with details about the error. The following errors can occure:
   - **START_REJECTED:** The server did not accept the client, either because a client with that name already exists, or because there is no more resources (ports) for more clients
  
-```
-
-The options object passed to the `startClient` method consists of the following properties, all optional
-
- - **Port:** The port which the server runs on
