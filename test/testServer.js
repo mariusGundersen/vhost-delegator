@@ -9,4 +9,6 @@ var server = sub.startServer({
   console.log("app started", app);
 }).on('app-stopped', function(app){
   console.log('app stopped', app);
+}).on('error', function(error){
+  console.error(error);
 });

@@ -50,8 +50,8 @@ Once a delegator server has been started, it emits events about what happens. Th
  - **app-started:** Emitted when a client connects. The parameter is the app object, containing the name, port and address to the client app.
  - **app-stopped:** Emitted when a client disconnects. The parameter is app object, containing the name, port and address to the client.
  - **error:** Emitted when an error occures. The parameter is an object with a code, describing the error, and a message with details about the error. The following errors can occure:
-   - **NAME_CONFLICT:** A client has attempted to connect as an app that already exists
-   - **PORTS_EXHAUSTED:** There are no more ports for clients to use
+   - **NAME_CONFLICT:** A client has attempted to connect as an app that already exists. The client receives a 409 response
+   - **PORTS_EXHAUSTED:** There are no more ports for clients to use. The client receives a 503 response
  
 ##Client
  
@@ -67,6 +67,15 @@ var server = http.createServer(function(req, res){
 });
  
 delegator.startClient("mysite.localhost", {}, server);
+
+### Events
+
+The startClient method returns an object which emits events. The following events are emitted:
+ 
+ - **started:** Emitted when the client has connected to the server and has been given a port. The event is called with the port as the only argument.
+ - **stopped:** Emitted when the client has disconnected from the server.
+ - **error:** Emited when something bad happens. The parameter is an object with a code, describing the error, and a message with details about the error. The following errors can occure:
+  - **START_REJECTED:** The server did not accept the client, either because a client with that name already exists, or because there is no more resources (ports) for more clients
  
 ```
 

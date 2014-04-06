@@ -8,4 +8,6 @@ var server = http.createServer(function(req, res){
 sub.startClient('blabla.localhost', {port: 8281}, server, function(error){
   console.log("error", error);
   server.close();
+}).on('error', function(error){
+  console.error(error);
 });
