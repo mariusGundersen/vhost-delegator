@@ -19,9 +19,27 @@ var delegator = require('vhost-delegator');
 delegator.startServer({});
 ```
 
-The options object passed to the `startServer` method consists of the following properties, all optional
+The options object passed to the `startServer` method looks like this:
 
- - **Port:** The port to run the application on
+```
+{
+  //these are the options for the controller, which the clients communicate with
+  controller: {
+    //port the controller runs on. The clients must be given the same port when they start
+    port: 8080,
+    //username and password which clients must use to be authorized as apps. 
+    username: "admin",
+    passowrd: "admin",
+    //range of ports which the clients can run on. The maxmum numbr of simultanious clients is determined by the size of this list
+    appPorts: [5060, 5061]
+  },
+  //these are the options for the proxy server
+  delegator: {
+    //outward port the server runs on
+    port: 80
+  }
+}
+```
  
 ##Client
  
