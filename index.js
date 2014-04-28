@@ -6,7 +6,7 @@ function range(from, to){
   
   if(to<from) throw new Error("Second parameter must be larger than first parameter");
   
-  for(var i=0; i<=to; i++){
+  for(var i=from; i<=to; i++){
     ret.push(i);
   }
   return ret;
