@@ -5,7 +5,7 @@ var server = http.createServer(function(req, res){
   res.end("hello");
 });
 
-sub.startClient('blabla.localhost', {port: 8281}, server)
+sub.startClient('blabla', ['blabla.localhost', 'lala.localhost'], {port: 8281}, server)
 .on('started', function(port){
   console.log("app started", port);
 }).on('stopped', function(){
